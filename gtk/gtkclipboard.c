@@ -623,15 +623,16 @@ gtk_clipboard_set_contents (GtkClipboard         *clipboard,
 }
 
 /**
- * gtk_clipboard_set_with_data: (skip)
+ * gtk_clipboard_set_with_data:
  * @clipboard: a #GtkClipboard
  * @targets: (array length=n_targets): array containing information
  *     about the available forms for the clipboard data
  * @n_targets: number of elements in @targets
- * @get_func: (scope async): function to call to get the actual clipboard data
- * @clear_func: (scope async): when the clipboard contents are set again,
- *     this function will be called, and @get_func will not be subsequently
- *     called.
+ * @get_func: (closure user_data) (scope async): function to call to get the
+ *     actual clipboard data
+ * @clear_func: (closure user_data) (scope async): when the clipboard
+ *     contents are set again, this function will be called, and @get_func
+ *     will not be subsequently called.
  * @user_data: user data to pass to @get_func and @clear_func.
  *
  * Virtually sets the contents of the specified clipboard by providing
@@ -664,15 +665,16 @@ gtk_clipboard_set_with_data (GtkClipboard          *clipboard,
 }
 
 /**
- * gtk_clipboard_set_with_owner: (skip)
+ * gtk_clipboard_set_with_owner:
  * @clipboard: a #GtkClipboard
  * @targets: (array length=n_targets): array containing information
  *     about the available forms for the clipboard data
  * @n_targets: number of elements in @targets
- * @get_func: (scope async): function to call to get the actual clipboard data
- * @clear_func: (scope async): when the clipboard contents are set again,
- *     this function will be called, and @get_func will not be subsequently
- *     called
+ * @get_func: (closure owner) (scope async): function to call to get
+ *     the actual clipboard data
+ * @clear_func: (closure owner) (scope async): when the clipboard
+ *     contents are set again, this function will be called, and @get_func
+ *     will not be subsequently called
  * @owner: an object that "owns" the data. This object will be passed
  *     to the callbacks when called
  *
